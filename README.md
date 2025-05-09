@@ -1,66 +1,84 @@
-# Travel Planner Simulator 🌍✈️
+# Travel Planner
 
 # 1. Traveler Profile Setup
-print(" Welcome to Python Travel Planner!")
+print("Welcome to the Travel Planner!")
 
 name = input("What's your name? ")
 home_country = input("Where are you from? ")
-trip_goal = input("What do you want to experience (e.g., adventure, relaxation, culture)? ")
+trip_goal = input("What do you want to experience (e.g., adventure, relaxation)? ")
 
-print(f"\n Hello {name} from {home_country}!")
-print(f"You're looking for a {trip_goal} vacation. Let's plan your journey!")
+print("Hello " + name + " from " + home_country + "!")
+print("You want a " + trip_goal + " vacation. Let's plan it!")
 
 # 2. Destination Selector
-print("\n Available destinations:")
+print("\nHere are some places you can go:")
 destinations = ["Japan", "Italy", "Brazil", "Canada", "Australia"]
 
-for i in range(len(destinations)):
-    print(f"{i + 1}. {destinations[i]}")
+# Show the list of destinations with numbers
+for i in range(5):
+    print(str(i + 1) + ". " + destinations[i])
 
-choice = int(input("Choose a destination by number: ")) - 1
-
-if 0 <= choice < len(destinations):
-    selected_destination = destinations[choice]
-    print(f" You've selected {selected_destination} as your travel destination!")
-else:
-    print("Invalid choice. Defaulting to 'Italy'.")
-    selected_destination = "Italy"
+# Ask the user to choose a destination by number
+while True:
+    try:
+        choice = int(input("Pick a destination by number (1-5): ")) - 1
+        if choice >= 0 and choice < len(destinations):
+            selected_destination = destinations[choice]
+            print("You chose " + selected_destination + "!")
+            break
+        else:
+            print("Invalid choice. Please pick a number between 1 and 5.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 # 3. Budget Planner
-print("\n Let's plan your travel budget!")
+print("\nNow, let's plan your budget.")
 
-budget = float(input("Enter your total travel budget in USD: "))
-flight_cost = float(input("Estimated flight cost: "))
-hotel_cost = float(input("Estimated hotel cost: "))
-food_cost = float(input("Estimated food cost: "))
+# Input validation for budget and costs
+while True:
+    try:
+        budget = float(input("How much money do you have for your trip? (GBP): "))
+        flight_cost = float(input("What is the estimated flight cost? (GBP): "))
+        hotel_cost = float(input("What is the estimated hotel cost? (GBP): "))
+        food_cost = float(input("How much will you spend on food? (GBP): "))
+        break
+    except ValueError:
+        print("Please enter a valid number for costs.")
 
+# Calculate the total cost
 total_cost = flight_cost + hotel_cost + food_cost
 remaining_budget = budget - total_cost
 
-print(f"\n🧾 Total estimated cost: ${total_cost:.2f}")
+# Show the results
+print("\nTotal cost of your trip: £" + str(total_cost))
 if remaining_budget >= 0:
-    print(f"You're within budget! You have ${remaining_budget:.2f} left.")
+    print("You are within your budget! You have £" + str(remaining_budget) + " left.")
 else:
-    print(f"You're over budget by ${-remaining_budget:.2f}. Consider adjusting your plans.")
+    print("You are over your budget by £" + str(-remaining_budget) + ". You may need to adjust your plans.")
 
 # 4. Itinerary Builder
-print("\n Let's plan your 3-day itinerary!")
+print("\nLet's plan your 3-day trip!")
 
 itinerary = []
+
+# Ask for activities for each day
 for day in range(1, 4):
-    activity = input(f"Enter an activity for Day {day}: ")
+    activity = input("What will you do on Day " + str(day) + "? ")
     itinerary.append(activity)
 
 # 5. Trip Summary
-print("\n🔚 Trip Summary")
-print("-" * 30)
-print(f"👤 Traveler: {name}")
-print(f"🌍 Destination: {selected_destination}")
-print(f"💸 Budget: ${budget:.2f}")
-print(f"🧾 Total Estimated Cost: ${total_cost:.2f}")
-print(f"💰 Remaining: ${remaining_budget:.2f}")
-print("\n🗓️ Itinerary:")
+print("\nHere is your trip summary:")
+print("------------------------------")
+print("Traveler: " + name)
+print("Destination: " + selected_destination)
+print("Total budget: £" + str(budget))
+print("Total cost: £" + str(total_cost))
+print("Remaining money: £" + str(remaining_budget))
+
+print("\nYour 3-day itinerary:")
 for i in range(3):
-    print(f"  Day {i + 1}: {itinerary[i]}")
-print("-" * 30)
-print("🎉 Trip planning complete! well done!")
+    print("  Day " + str(i + 1) + ": " + itinerary[i])
+
+print("------------------------------")
+print("Trip planning complete! Have a great time!")
+
