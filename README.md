@@ -1,17 +1,17 @@
 # Travel Planner Simulator 🌍✈️
 
 # 1. Traveler Profile Setup
-print("🌐 Welcome to Python Travel Planner!")
+print(" Welcome to Python Travel Planner!")
 
 name = input("What's your name? ")
 home_country = input("Where are you from? ")
 trip_goal = input("What do you want to experience (e.g., adventure, relaxation, culture)? ")
 
-print(f"\n✈️ Hello {name} from {home_country}!")
+print(f"\n Hello {name} from {home_country}!")
 print(f"You're looking for a {trip_goal} vacation. Let's plan your journey!")
 
 # 2. Destination Selector
-print("\n🧭 Available destinations:")
+print("\n Available destinations:")
 destinations = ["Japan", "Italy", "Brazil", "Canada", "Australia"]
 
 for i in range(len(destinations)):
@@ -21,13 +21,13 @@ choice = int(input("Choose a destination by number: ")) - 1
 
 if 0 <= choice < len(destinations):
     selected_destination = destinations[choice]
-    print(f"🌍 You've selected {selected_destination} as your travel destination!")
+    print(f" You've selected {selected_destination} as your travel destination!")
 else:
-    print("❌ Invalid choice. Defaulting to 'Italy'.")
+    print("Invalid choice. Defaulting to 'Italy'.")
     selected_destination = "Italy"
 
 # 3. Budget Planner
-print("\n💸 Let's plan your travel budget!")
+print("\n Let's plan your travel budget!")
 
 budget = float(input("Enter your total travel budget in USD: "))
 flight_cost = float(input("Estimated flight cost: "))
@@ -39,12 +39,12 @@ remaining_budget = budget - total_cost
 
 print(f"\n🧾 Total estimated cost: ${total_cost:.2f}")
 if remaining_budget >= 0:
-    print(f"✅ You're within budget! You have ${remaining_budget:.2f} left.")
+    print(f"You're within budget! You have ${remaining_budget:.2f} left.")
 else:
-    print(f"⚠️ You're over budget by ${-remaining_budget:.2f}. Consider adjusting your plans.")
+    print(f"You're over budget by ${-remaining_budget:.2f}. Consider adjusting your plans.")
 
 # 4. Itinerary Builder
-print("\n📅 Let's plan your 3-day itinerary!")
+print("\n Let's plan your 3-day itinerary!")
 
 itinerary = []
 for day in range(1, 4):
@@ -63,4 +63,4 @@ print("\n🗓️ Itinerary:")
 for i in range(3):
     print(f"  Day {i + 1}: {itinerary[i]}")
 print("-" * 30)
-print("🎉 Trip planning complete! Bon voyage!")
+print("🎉 Trip planning complete! well done!")
